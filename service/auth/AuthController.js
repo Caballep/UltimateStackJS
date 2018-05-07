@@ -22,6 +22,8 @@ router.post('/register', function (req, res) {
     password: hashedPassword
   },
     (err, user) => {
+      console.log(user);
+      console.log(err);
       if (err) return res.status(500).send("There was a problem registering the user.")
       // create a token
       var token = jwt.sign({ id: user._id }, config.secret, {
